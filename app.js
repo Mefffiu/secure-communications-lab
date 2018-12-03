@@ -13,7 +13,7 @@ const opts = {
 const app = express();
 
 app.get('/', (req, res) => {
-  res.send(`<a href="authenticate">Log in using client certificate</a>`);
+  res.send(`<a href="authenticate">Log in using certificate</a>`);
 });
 
 app.get('/authenticate', (req, res) => {
