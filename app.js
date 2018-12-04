@@ -41,8 +41,9 @@ app.get('/authenticate', (req, res) => {
 });
 
 const port = 9443;
-https.createServer(opts, app).listen(port)
-  .then(console.log(`Server listening on port: ${port}`))
-  .catch(err => {
+https.createServer(opts, app).listen(port, (err) => {
+  if (err) {
     console.log(err);
-  });
+  }
+  console.log(`Server listening on port: ${port}`);
+});
