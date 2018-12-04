@@ -3,11 +3,11 @@ const https = require('https');
 const express = require('express');
 
 const opts = {
-  key: fs.readFileSync('server-priv-key.pem'),
-  cert: fs.readFileSync('server-cert.pem'),
+  key: fs.readFileSync('server_key.pem'),
+  cert: fs.readFileSync('server_cert.pem'),
   requestCert: true,
   rejectUnauthorized: false,
-  ca: [ fs.readFileSync('server-cert.pem') ]
+  ca: [ fs.readFileSync('server_cert.pem') ]
 };
 
 const app = express();
