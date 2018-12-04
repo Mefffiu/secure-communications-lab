@@ -40,4 +40,7 @@ app.get('/authenticate', (req, res) => {
     .send(`<div>Authentication failed, no certificate found.</div>`);
 });
 
-https.createServer(opts, app).listen(9443);
+const port = 9443;
+https.createServer(opts, app).listen(port, () => {
+  console.log(`Server listening on port: ${port}`);
+});
