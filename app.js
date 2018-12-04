@@ -20,24 +20,20 @@ app.get('/authenticate', (req, res) => {
   const cert = req.connection.getPeerCertificate();
   if (req.client.authorized) {
     res.status(200)
-      .send(`<div>
-              <a>Authentication successful, your certificate:</a>
+      .send(`<a>Authentication successful, your certificate:</a>
               <a>Common Name: ${cert.subject.CN}</a>
-              <a>issued by ${cert.issuer.CN}</a>
-            </div>`);
+              <a>issued by ${cert.issuer.CN}</a>`);
   }
 
   if (cert.subject) {
     res.status(403)
-      .send(`<div>
-              <a>Authentication failed, your certificate:</a>
+      .send(`<a>Authentication failed, your certificate:</a>
               <a>Common Name: ${cert.subject.CN}</a>
-              <a>issued by ${cert.issuer.CN}</a>
-          </div>`);
+              <a>issued by ${cert.issuer.CN}</a>`);
   }
   
   res.status(401)
-    .send(`<div>Authentication failed, no certificate found.</div>`);
+    .send(`<a>Authentication failed, no certificate found.</a>`);
 });
 
 const port = 9443;
