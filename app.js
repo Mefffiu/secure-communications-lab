@@ -28,8 +28,7 @@ app.get('/authenticate', (req, res) => {
   if (cert.subject) {
     res.status(403)
       .send(`<a>Authentication failed, your certificate:</a>
-              <a>Common Name: ${cert.subject.CN}</a>
-              <a>issued by ${cert.issuer.CN}</a>`);
+              <a>Common Name: ${cert.subject.CN}</a>`);
   }
   
   res.status(401)
